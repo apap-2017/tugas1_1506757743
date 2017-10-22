@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/fragment :: header">
+	<title id="title">Sukses Mengubah Penduduk</title>
+</head>
+<body>
+	<h1>Sukses !</h1>
+	<h3 th:text="'Penduduk dengan NIK ' + ${nik} + ' berhasil diubah'">Berhasil</h3>
+</body>
+</html>

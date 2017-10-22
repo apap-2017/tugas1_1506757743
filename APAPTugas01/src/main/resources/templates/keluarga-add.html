@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head th:include="fragments/fragment :: header">
+	<title id="title">Tambah Keluarga</title>
+</head>
+<body>
+	<h1>Tambah Keluarga</h1>
+	<hr/>
+	<form action="/keluarga/tambah" method="post">
+		<input type="hidden" name="idKeluarga" value="0"/>
+		<input type="hidden" name="nomorKK" value="0000000000000000"/>
+		<input type="hidden" name="isTidakBerlaku" value="0"/>
+		
+		<label>Alamat</label>
+		<input type="text" name="alamat"/>
+		<br/>
+
+		<label>RT</label>
+		<input type="text" name="rt" pattern="^[0-9]{3}" title="harus 3 digit nomor"/>
+		<br/>
+
+		<label>RW</label>
+		<input type="text" name="rw" pattern="^[0-9]{3}" title="harus 3 digit nomor"/>
+		<br/>
+
+		<label>Kelurahan/Desa</label>
+		<select name="idKelurahan">
+			<option selected="selected" disabled="disabled">Pilih</option>
+			<option th:each="kelurahan, iterationStatus: ${listKelurahan}" th:text="${kelurahan.namaKelurahan}" th:value="${kelurahan.idKelurahan}">Kelurahan</option>
+		</select>
+		<br/>
+
+		<br/>
+		<button type="submit">Tambah</button>
+	</form>
+</body>
+</html>

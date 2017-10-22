@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/fragment :: header">
+	<title id="title">Ubah Data Penduduk</title>
+</head>
+<body>
+	<h1 class="page-header">Ubah Data Penduduk</h1>
+	<hr/>
+
+	<form th:object="${penduduk}" th:action="'/penduduk/ubah/' + ${penduduk.nik}" method="post">
+		<input type="hidden" name="idPenduduk" th:value="${penduduk.idPenduduk}"/>
+		
+		<label>NIK</label> 
+		<input th:field="*{nik}" type="text" name="nik" readonly="true" th:value="${penduduk.nik}" />
+		<br/>
+		
+		<label>Nama</label> 
+		<input th:field="*{nama}" type="text" name="name" th:value="${penduduk.nama}" />
+		<br/>
+		
+		<label>Tempat Lahir</label> 
+		<input th:field="*{tempatLahir}" type="text" name="tempatLahir" th:value="${penduduk.tempatLahir}" />
+		<br/>
+		
+		<label>Tanggal Lahir</label>
+		<input th:field="*{tanggalLahir}" type="text" name="tanggalLahir" th:value="${penduduk.tanggalLahir}"/>
+		<br/>
+
+		<label>Jenis Kelamin</label>
+		<select th:field="*{jenisKelamin}" name="jenisKelamin" th:value="${penduduk.jenisKelamin}">
+			<option value="0">Laki laki</option>
+			<option value="1">Wanita</option>
+		</select>
+		<br/>
+
+		<label>Kewarganegaraan</label>
+		<select th:field="*{isWni}" name="isWni" th:value="${penduduk.isWni}">
+			<option value="1">WNI</option>
+			<option value="0">WNA</option>
+		</select>
+		<br/>
+
+		<label>Id Keluarga</label>
+		<input th:field="*{idKeluarga}" type="text" name="idKeluarga" th:value="${penduduk.idKeluarga}"/>
+		<br/>
+
+		<label>Agama</label>
+		<input th:field="*{agama}" type="text" name="agama" th:value="${penduduk.agama}"/>
+		<br/>
+
+		<label>Pekerjaan</label>
+		<input th:field="*{pekerjaan}" type="text" name="pekerjaan" th:value="${penduduk.pekerjaan}"/>
+		<br/>
+
+		<label>Status Perkawinan</label>
+		<input th:field="*{statusPerkawinan}" type="text" name="statusPerkawinan" th:value="${penduduk.statusPerkawinan}"/>
+		<br/>
+
+		<label>Status dalam Keluarga</label>
+		<input th:field="*{statusDalamKeluarga}" type="text" name="statusDalamKeluarga" th:value="${penduduk.statusDalamKeluarga}"/>
+		<br/>
+
+		<label>Golongan Darah</label>
+		<select th:field="*{golonganDarah}" name="golonganDarah" th:value="${penduduk.golonganDarah}">
+			<option value="A-">A-</option>
+			<option value="A+">A+</option>
+			<option value="B-">B-</option>
+			<option value="B+">B+</option>
+			<option value="O-">O-</option>
+			<option value="O+">O+</option>
+			<option value="AB-">AB-</option>
+			<option value="AB+">AB+</option>
+		</select>
+		<br/>
+
+		<input type="hidden" name="isWafat" value="0"/>
+
+		<button type="submit">Ubah</button>
+	</form>
+</body>
+</html>

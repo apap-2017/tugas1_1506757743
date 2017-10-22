@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/fragment :: header">
+	<title id="title">Cari Data Penduduk</title>
+</head>
+<body>
+	<h1 class="page-header">Cari Data Penduduk</h1>
+	<hr/>
+
+	<form action="/penduduk/cari" method="get">
+		<label>Kota/Kabupaten</label>
+		<select name="kt">
+			<option selected="selected" th:value="${kota.idKota}" th:text="${kota.namaKota}" required="true"></option>
+		</select>
+		<br/>
+
+		<label>Kecamatan</label>
+		<select name="kc">
+			<option selected="selected" th:value="${kecamatan.idKecamatan}" th:text="${kecamatan.namaKecamatan}" required="true"></option>
+		</select>
+		<br/>
+
+		<label>Kelurahan/Desa</label>
+		<select name="kl">
+			<option selected="selected" disabled="disabled" required="true">Pilih</option>
+			<option th:each="kelurahan, iterationStatus: ${listKelurahan}" th:text="${kelurahan.namaKelurahan}" th:value="${kelurahan.idKelurahan}">Kelurahan</option>
+		</select>
+		<br/>
+
+		<button type="submit">Cari</button>
+	</form>
+</body>
+</html>

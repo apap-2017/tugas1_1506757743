@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/fragment :: header">
+	<title id="title">Ubah Data Keluarga</title>
+</head>
+<body>
+	<h1 class="page-header">Ubah Data Keluarga</h1>
+	<hr/>
+
+	<form th:object="${keluarga}" th:action="'/keluarga/ubah/' + ${keluarga.nomorKK}" method="post">
+		<input type="hidden" name="idKeluarga" th:value="${keluarga.idKeluarga}"/>
+		
+		<label>NKK</label> 
+		<input th:field="*{nomorKK}" type="text" name="nomorKK" readonly="true" th:value="${keluarga.nomorKK}" />
+		<br/>
+		
+		<label>Alamat</label> 
+		<input th:field="*{alamat}" type="text" name="alamat" th:value="${keluarga.alamat}" />
+		<br/>
+		
+		<label>RT</label> 
+		<input th:field="*{rt}" type="text" name="rt" th:value="${keluarga.rt}" />
+		<br/>
+		
+		<label>RW</label>
+		<input th:field="*{rw}" type="text" name="rw" th:value="${keluarga.rw}"/>
+		<br/>
+
+		<label>Kelurahan/Desa</label>
+		<select th:field="*{idKelurahan}" name="idKelurahan" th:value="${keluarga.idKelurahan}">
+			<option th:each="kelurahan, iterationStatus: ${listKelurahan}" th:text="${kelurahan.namaKelurahan}" th:value="${kelurahan.idKelurahan}">Kelurahan</option>
+		</select>
+		<br/>
+
+		<input type="hidden" name="isTidakBerlaku" value="0"/>
+
+		<button type="submit">Ubah</button>
+	</form>
+</body>
+</html>

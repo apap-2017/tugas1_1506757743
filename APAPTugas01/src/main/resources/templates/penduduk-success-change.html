@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/fragment :: header">
+	<title id="title">Sukses Mengubah Status Penduduk</title>
+</head>
+<body>
+	<h1>Sukses !</h1>
+	<h3 th:text="'Penduduk dengan NIK ' + ${penduduk.nik} + ' sudah tidak aktif'">Berhasil</h3>
+	
+	<script type="text/javascript" th:inline="javascript">
+		var nik = [[${penduduk.nik}]];
+		
+		window.setTimeout(function(){ window.location = "../penduduk?nik=" + nik; },3000);
+	</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+	<head th:include="fragments/fragment :: header">
+		<title id="title">Index</title>
+	</head>
+	<body align="center">
+		<h2>Sistem Informasi Kependudukan Online Provinsi DKI Jakarta</h2>
+		<h6>Selamat datang di Sistem Informasi Kependudukan Online Provinsi DKI Jakarta</h6>
+		<hr/>
+		<h5>Lihat Data Penduduk Berdasarkan NIK</h5>
+		<p>Masukkan Nomor Induk Kependudukan</p>
+		<form action="/penduduk" method="get">
+			<input type="text" name="nik" placeholder="NIK"></input>
+			<button type="submit">Lihat</button>
+		</form>
+		<hr/>
+		<h5>Lihat Data Keluarga Berdasarkan NKK</h5>
+		<p>Masukkan Nomor Kartu Kependudukan</p>
+		<form class="inputAction" action="/keluarga" method="get">
+			<input type="text" name="nkk" placeholder="NKK"></input>
+			<button type="submit">Lihat</button>
+		</form>
+		<hr/>
+	</body>
+</html>

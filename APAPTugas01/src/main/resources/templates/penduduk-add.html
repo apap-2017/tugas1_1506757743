@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head th:include="fragments/fragment :: header">
+	<title id="title">Tambah Penduduk</title>
+</head>
+<body>
+	<h1>Tambah Penduduk</h1>
+	<hr/>
+	<form action="/penduduk/tambah" method="post">
+		<input type="hidden" name="idPenduduk" value="0"/>
+		<input type="hidden" name="nik" value="0000000000000000"/>
+		<input type="hidden" name="isWafat" value="0"/>
+		
+		<label>Id Keluarga</label>
+		<input type="text" name="idKeluarga"/>
+		<br/>
+
+		<label>Nama Lengkap</label>
+		<input type="text" name="nama"/>
+		<br/>
+
+		<label>Jenis Kelamin</label>
+		<select name="jenisKelamin">
+			<option disabled="disabled" selected="selected">Pilih</option>
+			<option value="0">Laki laki</option>
+			<option value="1">Wanita</option>
+		</select>
+		<br/>
+
+		<label>Tempat Lahir</label>
+		<input type="text" name="tempatLahir"/>
+		<br/>
+
+		<label>Tanggal Lahir</label>
+		<input type="text" name="tanggalLahir"/>
+		<br/>
+
+		<label>Golongan Darah</label>
+		<select name="golonganDarah">
+			<option disabled="disabled" selected="selected">Pilih</option>
+			<option value="A-">A-</option>
+			<option value="A+">A+</option>
+			<option value="B-">B-</option>
+			<option value="B+">B+</option>
+			<option value="O-">O-</option>
+			<option value="O+">O+</option>
+			<option value="AB-">AB-</option>
+			<option value="AB+">AB+</option>
+		</select>
+		<br/>
+
+		<label>Agama</label>
+		<input type="text" name="agama"/>
+		<br/>
+
+		<label>Status Perkawinan</label>
+		<select name="statusPerkawinan">
+			<option disabled="disabled" selected="selected">Pilih</option>
+			<option value="Kawin">Kawin</option>
+			<option value="Belum Kawin">Belum Kawin</option>
+		</select>
+		<br/>
+
+		<label>Pekerjaan</label>
+		<input type="text" name="pekerjaan"/>
+		<br/>
+
+		<label>Kewarganegaraan</label>
+		<select name="isWni">
+			<option disabled="disabled" selected="selected">Pilih</option>
+			<option value="1">WNI</option>
+			<option value="0">WNA</option>
+		</select>
+		<br/>
+		
+		<label>Status Dalam Keluarga</label>
+		<input type="text" name="statusDalamKeluarga"/>
+		<br/>
+		
+		<br/>
+		<button type="submit">Tambah</button>
+	</form>
+</body>
+</html>

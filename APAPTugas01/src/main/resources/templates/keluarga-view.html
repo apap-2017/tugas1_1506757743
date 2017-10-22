@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:include="fragments/fragment :: header">
+        <title id="title">View Keluarga by NKK</title>
+    </head>
+    <body>
+    	<h2 th:text="'Lihat Data Keluarga - ' + ${keluarga.nomorKK}"></h2>
+    	<hr/>
+    	<table>
+    		<tr>
+    			<td><b>NKK</b></td>
+    			<td th:text="${keluarga.nomorKK}"></td>
+    		</tr>
+    		<tr>
+    			<td><b>Alamat</b></td>
+    			<td th:text="${keluarga.alamat}"></td>
+    		</tr>
+    		<tr>
+    			<td><b>RT/RW</b></td>
+    			<td th:text="${keluarga.rt} + '/' + ${keluarga.rw}"></td>
+    		</tr>
+    		<tr>
+    			<td><b>Kelurahan/Desa</b></td>
+    			<td th:text="${kelurahan.namaKelurahan}"></td>
+    		</tr>
+    		<tr>
+    			<td><b>Kecamatan</b></td>
+    			<td th:text="${kecamatan.namaKecamatan}"></td>
+    		</tr>
+    		<tr>
+    			<td><b>Kota</b></td>
+    			<td th:text="${kota.namaKota}"></td>
+    		</tr>
+    		<tr>
+    			<td><b>Status KK</b></td>
+    			<div th:switch="${keluarga.isTidakBerlaku}">
+    				<td th:case="'1'">Tidak berlaku</td>
+    				<td th:case="*">Berlaku</td>
+    			</div>
+    		</tr>
+    	</table>
+    	<br/>
+    	
+    	<table>
+			<thead>
+				<tr>
+					<th>No</th>
+					<th>Nama Lengkap</th>
+					<th>NIK</th>
+					<th>Jenis Kelamin</th>
+					<th>Tempat Lahir</th>
+					<th>Tanggal Lahir</th>
+					<th>Agama</th>
+					<th>Pekerjaan</th>
+					<th>Status Perkawinan</th>
+					<th>Status dalam Keluarga</th>
+					<th>Kewarganegaraan</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="penduduk, iterationStatus: ${anggota}">
+					<td th:text="${iterationStatus.count}">No</td>
+					<td th:text="${penduduk.nama}">Nama</td>
+					<td><a th:href="'penduduk?nik=' + ${penduduk.nik}" th:text="${penduduk.nik}">NIK</a></td>
+					<td th:if="${penduduk.jenisKelamin == 0}">Laki Laki</td>
+					<td th:if="${penduduk.jenisKelamin == 1}">Wanita</td>
+					<td th:text="${penduduk.tempatLahir}">Tempat Lahir</td>
+					<td th:text="${penduduk.tanggalLahir}">Tanggal Lahir</td>
+					<td th:text="${penduduk.agama}">Agama</td>
+					<td th:text="${penduduk.pekerjaan}">Pekerjaan</td>
+					<td th:text="${penduduk.statusPerkawinan}">Status Perkawinan</td>
+					<td th:text="${penduduk.statusDalamKeluarga}">Status dalam Keluarga</td>
+					<div th:switch="${penduduk.isWni}">
+	    				<td th:case="'1'">WNI</td>
+	    				<td th:case="'0'">WNA</td>
+    				</div>
+					<div th:switch="${penduduk.isWafat}">
+	    				<td th:case="'1'">Meninggal</td>
+	    				<td th:case="'0'">Hidup</td>
+    				</div>
+				</tr>
+			</tbody>
+		</table>    	
+    </body>
+</html>
+
